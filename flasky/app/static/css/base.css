@@ -1,0 +1,89 @@
+* {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    position:relative;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    position: relative;
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 2000px 1000px;    
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #000000;
+    text-decoration: none;
+}
+
+.body {
+    width: 1040px;
+    margin: 0px auto;
+}
+
+.page-head {
+    height: 100px;
+}
+
+.page-head ul{
+    margin:31.75px 0px;
+    list-style-type:none;
+    float:right;
+}
+
+.page-head li{
+    margin:9px 0px;
+    width:200px;
+    text-align:center;
+    list-style-type:none;
+}
+
+.dropdown{
+    display:none;
+}
+
+.page-head ul:hover .dropdown{
+    display:block;
+}
+
+.page-head>span {
+    line-height: 100%;
+    font-size: 42px;
+    color: #fff;
+    float: left;
+    margin-top: 43px;
+}
+
+.page-head a {
+    text-decoration: none;
+}
+.page-head a>span {
+    line-height: 100%;
+    color: #fff;
+    font-size: 20px;
+}
+.page-func {
+    height: 45px;
+    bottom:11px;
+}
+
+.page-func ul {
+    list-style-type: none;
+}
+
+.page-func li {
+    width: 100px;
+    line-height: 45px;
+    text-align: center;
+    display: block;
+    float: left;
+}
+

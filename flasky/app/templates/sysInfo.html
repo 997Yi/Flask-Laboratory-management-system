@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{super()}} - 实验室介绍{% endblock title %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="../static/css/sysInfo.css">    
+{% endblock styles %}
+
+
+{% block content %}
+{{super()}}
+<div class="page-content">
+<h1>实验室信息</h1>
+<h3>学生实验室</h3>
+<div style="height:300px;">
+    <span style="font-size:75px;">面向学生 - 实验室机房图</span>
+</div>
+<h3>课程实验室</h3>
+<div style="height:300px;">
+    <span style="font-size:75px;">面向课程 - 实验室机房图</span>
+</div>
+</div>
+{% endblock content %}
+        

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}{{super()}} - 我要预约{% endblock title %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="../../static/css/appoint/appoint.css">    
+{% endblock styles %}
+
+
+{% block content %}
+{{super()}}
+<div class="page-content">
+    <h1>我要预约</h1>
+    <div style="padding:5px 20px;">        
+        {% if current_user.can(perm.STUDENT_LAB) %}
+        <h3>学生实验室查询</h3>
+        <div class="col-md-4" style="width:100%;float:none;">
+            {{ wtf.quick_form(checkStuForm) }}
+        </div>
+        <h3>学生实验室预约</h3>
+        <div class="col-md-4" style="width:100%;float:none;">
+            {{ wtf.quick_form(appStuForm) }}
+        </div>
+        {% endif %} 
+        {% if current_user.can(perm.COURSE_LAB) %}
+        <h3>课程实验室查询</h3>
+        <div class="col-md-4" style="width:100%;float:none;">
+            {{ wtf.quick_form(checkTeaForm) }}
+        </div>
+        <h3>课程实验室预约</h3>
+        <div class="col-md-4" style="width:100%;float:none;">
+            {{ wtf.quick_form(appTeaForm) }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
+        

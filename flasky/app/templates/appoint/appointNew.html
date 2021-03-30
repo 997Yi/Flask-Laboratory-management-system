@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}{{super()}} - 我要预约{% endblock title %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="../../static/css/appoint/appointnew.css">
+    
+{% endblock styles %}
+
+
+{% block content %}
+{{super()}}
+<div class="content">
+    <div class="choice">
+        选择实验室、日期、开始时间、结束时间
+    </div>
+    <div class="laboratory">
+        <div style="width:534px;height:66px;text-align:center;margin:0px auto;border-width: 2px;border-style: solid;">
+            <img style="width:79px;height:62px;float:left;" src="../../static/img/讲台.png">
+            <span style="font-size:28px;line-height:66px;">{{labNo}}实验室</span>
+        </div>
+        <span style="font-size:24px;float:left;left:400px;top:75px;">点击电脑图标进行预约</span>        
+        <div style="width:54px;float:right;">
+            <img style="width:54px;height:68px;" src="../../static/img/门.png">
+            <span style="width:54px;display:inline-block;text-align:center;">前门</span>
+        </div>
+        <div style="width:800px;float:left;left:120px;top:200px;">
+            <script type="text/javascript">        
+                function verify_alert(lab, com){
+                    alert("请确认您要预约"+lab+"号实验室的第"+com+"号计算机!");
+                }
+            </script>   
+            {% for stuLab in stuLabList %}            
+                <div style="height:68px;width:57px;float:left;{% if stuLab.comNo%5 == 0 and stuLab.comNo%10 != 0 %}margin:0px 230px 0px 0px;{% endif %}">
+                    <img style="width:57px;height:47px;" src="../../static/img/电脑(未预约).png" onclick="verify_alert({{labNo}}, {{stuLab.comNo}})">
+                    <span style="width:57px;display:inline-block;text-align:center;">{{stuLab.comNo}}号</span>
+                </div>
+                
+            {% endfor %}
+        </div>
+        <div style="width:54px;float:right;left:54px;top:500px;">
+            <img style="width:54px;height:68px;" src="../../static/img/门.png">
+            <span style="width:54px;display:inline-block;text-align:center;">后门</span>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+        

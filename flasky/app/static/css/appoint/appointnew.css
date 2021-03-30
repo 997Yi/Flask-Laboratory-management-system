@@ -1,0 +1,14 @@
+.content{    
+    height:755px;
+}
+
+.choice {
+    height:50px;
+}
+
+.laboratory {
+    background-color:#dddddd;
+    height:700px;
+    border-width: 2px;
+    border-style: solid;
+}

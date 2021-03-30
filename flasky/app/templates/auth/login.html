@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{super()}} - 登录
+{% endblock title %}
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="../../static/css/auth/login.css">       
+{% endblock styles %}
+
+{% block content %}
+{{super()}}
+<div class="login">
+    <h1>用户登录</h1>
+    <span style="color:red;font-size:15px;">(通过学校的接口进行统一身份认证,将用户身份信息传回来存储到users表里面)</span>
+    <div>
+        <form method="POST">
+            <!--启动CSRF-->
+            {{form.hidden_tag()}}
+            
+            <div>
+                <p>{{form.sno.label}}</p>
+                {{form.sno}}
+                {%for e in form.sno.errors%}
+                <span style="color: red">*{{e}}</span>
+                {%endfor%}
+            </div>
+            <div>
+                <p>{{form.password.label}}</p>
+                {{form.password}} 
+                {%for e in form.password.errors%}
+                <span style="color: red">*{{e}}</span>
+                {%endfor%}
+            </div>
+            <div>  
+                {{form.remember_me}}<span>{{form.remember_me.label}}</span><br>
+                {{form.submit}}
+            </div>
+           
+        </form>
+    </div>
+</div>
+{% endblock content %}

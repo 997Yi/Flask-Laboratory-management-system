@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{super()}} - 首页{% endblock title %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">    
+{% endblock styles %}
+
+
+{% block content %}
+{{super()}}
+<div class="page-content">
+     <h1>系统说明</h1>
+     <div class="explain">
+       <h3>实验室开放时间</h3>
+       <span>上午: 08:30 - 12:00</span>
+       <span>下午: 14:00 - 17:30</span>
+      </div>
+      <div  class="notice">
+       <h3>公告</h3>
+           {% for notice in noticeList %}
+              <span>{{notice.content}}</span>
+              <hr>                     
+           {% endfor %}
+    </div>
+    <div style="height:40px;margin:20px;">
+        <a class="btn" href="{{url_for('appoint.appointNew')}}" role="button">立即预约</a>
+     </div>
+</div>
+{% endblock content %}
+        

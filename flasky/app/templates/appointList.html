@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}{{super()}} - 预约列表{% endblock title %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="../static/css/appointList.css">    
+{% endblock styles %}
+
+
+{% block content %}
+{{super()}}
+<div class="page-content">
+<h1>预约列表</h1>
+<div style="left:20px;">
+    <h3>课程实验室预约列表</h3>
+    <span>预约老师</span> <span style="color:blue;">预约日期</span> <span>课程表</span>
+    <br>
+    {% for appTea in appTeaList %}
+        <span>{{appTea.user.name}}</span> <span style="color:blue;">{{appTea.date}}</span> <span>第{{appTea.howClass}}节课</span>
+        <br>
+    {% endfor %}
+    
+    <h3>学生实验室预约列表</h3>
+    <span>预约人</span> <span style="color:blue;">预约理由</span> <span>开始时间</span> <span style="color:blue;">结束时间</span>
+    <br>
+    {% for appStu in appStuList %}
+        <span>{{appStu.user.name}}</span> <span style="color:blue;">{{appStu.useReason}}</span> <span>{{appStu.startTime}}</span> <span style="color:blue;">{{appStu.endTime}}</span>
+        <br>
+    {% endfor %}
+</div>
+
+</div>
+{% endblock content %}
+        
